@@ -13,31 +13,35 @@
 <body>
     <!-- Navigation -->
     <nav class="nav">
-        <div class="nav-container">
-            <a href="#" class="nav-link">about</a>
-            <a href="#" class="nav-link">resume</a>
-            <a href="#" class="nav-link">works</a>
+        <div class="nav-inner">
+            <a href="#home" class="brand">Chen‑Yu Kao</a>
+            <div class="nav-container">
+                <a href="#works" class="nav-link">works</a>
+                <a href="#about" class="nav-link">about</a>
+                <a href="#contact" class="nav-link">contact</a>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">
-                <span class="line">Chen-Yu Kao</span>
-            </h1>
-            <p class="hero-subtitle">PRODUCT / EXPERIENCE DESIGNER</p>
-            <div class="scroll-indicator">
-                <span>Scroll</span>
-                <div class="scroll-arrow"></div>
+    <section id="home" class="hero">
+        <div class="hero-content split">
+            <div class="hero-copy">
+                <h1 class="hero-title">Chen‑Yu Kao</h1>
+                <p class="hero-subtitle">Product / Experience Designer</p>
+                <div class="hero-ctas">
+                    <a href="#works" class="button primary">View work</a>
+                    <a href="#about" class="button subtle">About me</a>
+                </div>
             </div>
+            <div class="hero-visual" aria-hidden="true"></div>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section class="projects">
+    <section id="works" class="projects">
         <!-- Project 1: Inline Reflexives -->
-        <div class="project" data-project="1">
+        <div class="project alt" data-project="1">
             <div class="project-content">
                 <div class="project-text">
                     <p class="project-description">Accelerated Ladder application process. Less is more.</p>
@@ -46,7 +50,7 @@
                     <div class="project-number">1</div>
                 </div>
                 <div class="project-visual">
-                    <div class="project-placeholder"></div>
+                    <div class="project-placeholder">Case study visual</div>
                 </div>
             </div>
         </div>
@@ -61,13 +65,13 @@
                     <div class="project-number">2</div>
                 </div>
                 <div class="project-visual">
-                    <div class="project-placeholder"></div>
+                    <div class="project-placeholder">Case study visual</div>
                 </div>
             </div>
         </div>
 
         <!-- Project 3: Recommendation Engine -->
-        <div class="project" data-project="3">
+        <div class="project alt" data-project="3">
             <div class="project-content">
                 <div class="project-text">
                     <p class="project-description">Redesigned one of the most used tools from Cloudflare's website to help customers locate the right products and services.</p>
@@ -76,7 +80,7 @@
                     <div class="project-number">3</div>
                 </div>
                 <div class="project-visual">
-                    <div class="project-placeholder"></div>
+                    <div class="project-placeholder">Case study visual</div>
                 </div>
             </div>
         </div>
@@ -91,29 +95,29 @@
                     <div class="project-number">4</div>
                 </div>
                 <div class="project-visual">
-                    <div class="project-placeholder"></div>
+                    <div class="project-placeholder">Case study visual</div>
                 </div>
             </div>
         </div>
 
         <!-- Project 5: Template System -->
-        <div class="project" data-project="5">
+        <div class="project alt" data-project="5">
             <div class="project-content">
                 <div class="project-text">
                     <p class="project-description">Revolutionized website creation experience to allow personalization in a single platform that serves two different industries.</p>
                     <p class="project-type">Interaction Design</p>
                     <h2 class="project-title">Template System</h2>
-                    <div class="project-number">4</div>
+                    <div class="project-number">5</div>
                 </div>
                 <div class="project-visual">
-                    <div class="project-placeholder"></div>
+                    <div class="project-placeholder">Case study visual</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section class="about">
+    <section id="about" class="about">
         <div class="about-container">
             <h2 class="section-title">About me</h2>
             <div class="about-content">
@@ -134,12 +138,19 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="contact">
+    <section id="contact" class="contact">
         <div class="contact-container">
             <p class="contact-text">Shoot me an email</p>
             <a href="mailto:your-email@example.com" class="contact-email">your-email@example.com</a>
         </div>
     </section>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <span>© <span id="year"></span> Chen‑Yu Kao</span>
+            <a href="#home" class="back-to-top">Back to top</a>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>

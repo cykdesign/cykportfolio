@@ -1,19 +1,5 @@
 // Smooth scroll for navigation links
 document.addEventListener('DOMContentLoaded', function() {
-    // Add smooth scrolling to nav links
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const href = this.getAttribute('href');
-            if (href === '#') {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
 
     // Intersection Observer for project animations
     const observerOptions = {
@@ -35,13 +21,14 @@ document.addEventListener('DOMContentLoaded', function() {
         projectObserver.observe(project);
     });
 
-    // Navbar background on scroll
+    // Navbar background on scroll + active link
     const nav = document.querySelector('.nav');
-    let lastScroll = 0;
+    const sections = document.querySelectorAll('section[id]');
+    const links = document.querySelectorAll('.nav-link');
 
-    window.addEventListener('scroll', function() {
+    function onScroll() {
         const currentScroll = window.pageYOffset;
-        
+
         if (currentScroll > 100) {
             nav.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
             nav.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.05)';
@@ -49,9 +36,21 @@ document.addEventListener('DOMContentLoaded', function() {
             nav.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
             nav.style.boxShadow = 'none';
         }
-        
-        lastScroll = currentScroll;
-    });
+
+        let activeId = '';
+        sections.forEach(sec => {
+            const rect = sec.getBoundingClientRect();
+            if (rect.top <= 120 && rect.bottom > 120) {
+                activeId = sec.id;
+            }
+        });
+        links.forEach(l => {
+            l.classList.toggle('active', l.getAttribute('href') === `#${activeId}`);
+        });
+    }
+
+    window.addEventListener('scroll', onScroll);
+    onScroll();
 
     // Add companies (you can customize this list)
     const companies = [
@@ -72,15 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Parallax effect for hero section
-    const hero = document.querySelector('.hero');
-    if (hero) {
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const rate = scrolled * 0.5;
-            hero.style.transform = `translateY(${rate}px)`;
-        });
-    }
+    // Removed parallax for stability and reduced motion
 
     // Add hover effects to projects
     const projectVisuals = document.querySelectorAll('.project-visual');
@@ -94,6 +85,10 @@ document.addEventListener('DOMContentLoaded', function() {
             this.style.transform = 'scale(1)';
         });
     });
+
+    // Footer year
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
 });
 
 // Smooth scroll behavior
